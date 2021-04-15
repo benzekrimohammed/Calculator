@@ -1,0 +1,13 @@
+{
+    "java.project.referencedLibraries": [
+        "lib/**/*.jar",
+        "/home/medbenzekri/programmes_files/openjfx-16_linux-x64_bin-sdk/javafx-sdk-16/lib/javafx-swt.jar",
+        "/home/medbenzekri/programmes_files/openjfx-16_linux-x64_bin-sdk/javafx-sdk-16/lib/javafx.web.jar",
+        "/home/medbenzekri/programmes_files/openjfx-16_linux-x64_bin-sdk/javafx-sdk-16/lib/javafx.swing.jar",
+        "/home/medbenzekri/programmes_files/openjfx-16_linux-x64_bin-sdk/javafx-sdk-16/lib/javafx.media.jar",
+        "/home/medbenzekri/programmes_files/openjfx-16_linux-x64_bin-sdk/javafx-sdk-16/lib/javafx.graphics.jar",
+        "/home/medbenzekri/programmes_files/openjfx-16_linux-x64_bin-sdk/javafx-sdk-16/lib/javafx.fxml.jar",
+        "/home/medbenzekri/programmes_files/openjfx-16_linux-x64_bin-sdk/javafx-sdk-16/lib/javafx.controls.jar",
+        "/home/medbenzekri/programmes_files/openjfx-16_linux-x64_bin-sdk/javafx-sdk-16/lib/javafx.base.jar"
+    ]
+}
