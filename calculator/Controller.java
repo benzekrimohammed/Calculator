@@ -10,7 +10,7 @@ public class Controller {
  public void insert(Event e){
     Button button =  (Button)e.getSource();
     String number= button.getText();
-    panel.setText(panel.getText()+number);     
+    panel.setText(panel.getText()+number);  
     
  }
 }
