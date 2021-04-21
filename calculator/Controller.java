@@ -1,34 +1,78 @@
 package calculator;
 import javafx.event.Event;
 import javafx.event.EventHandler;
+import javafx.fxml.FXML;
 import javafx.scene.control.*;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+import javafx.scene.input.MouseEvent;
 
 public class Controller {
-    
-   public Label panel;
- public void insert(Event e){
-    Button button =  (Button)e.getSource();
-    String number= button.getText();
-    if(panel.getText()=="0"){ 
-       panel.setText("");
-    }
-    panel.setText(panel.getText()+number);  
- }
- public void calculate(){
- Pattern numbers = Pattern.compile("(\\d+)([+-\\*])+");
- Matcher phrase = numbers.matcher(panel.getText());
- double result=0;
- for(int i=0;i<phrase.groupCount();i+=2){
-    switch(phrase.group(i)){
-       case "÷": 
-       result += Float.parseFloat(phrase.group(i-1))/Float.parseFloat(phrase.group(i+1));
-       System.out.println(result);
-       break;
-    }
+   @FXML
+   private Label panel;
+   @FXML
+   private Label result;
+
+   public void clearText(){
+      panel.setText("");
+      result.setText("");
+   }
+   public void insertNumber(String btext){
+      panel.setText(panel.getText()+btext);}
+   
+   public void insertop(String operator){
+      panel.setText(panel.getText() + " " + operator + " ");
+   }
+   public Label getexpression(){
+      return panel;
+   }
+   public void delete(){
+      if(!getexpression().getText().isEmpty()){
+         StringBuilder text = new StringBuilder(getexpression().getText());
+         text.deleteCharAt(text.length()-1);
+         getexpression().setText(text.toString());
+      }
+   }
+   
+   public void setresult(String newresult){
+      this.result.setText("= " + newresult);
+   }
+   public void insert(Event e){
+      Button button =  (Button)e.getSource();
+      String btext = button.getText();
+
+      switch(btext){
+         case "1": 
+         case "2": 
+         case "3": 
+         case "4": 
+         case "5": 
+         case "6": 
+         case "7": 
+         case "8": 
+         case "9": 
+         case "0":
+         case ",":
+         insertNumber(btext);
+         break;
+         case "+":
+         case "-":
+         case "X":
+         case "÷":
+         case "%":
+         insertop(btext);
+         break;
+         case "AC":
+         clearText();
+         break;
+         case "=":
+         double result = Evaluation.evaluate(this.getexpression().getText());
+         setresult(String.valueOf(result));
+         break;
+         
+
+      }
+
+
+ 
  }
  
- 
- }
 }
