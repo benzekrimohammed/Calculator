@@ -138,7 +138,7 @@
                         <Font size="16.0" />
                      </font>
                   </Button>
-                  <Button id="eq" mnemonicParsing="false" onAction="#insert" prefHeight="55.0" prefWidth="55.0" style="-fx-background-radius: 30; -fx-background-color: #FA9712;" text="=" textFill="WHITE" GridPane.columnIndex="3" GridPane.rowIndex="4">
+                  <Button id="eq" mnemonicParsing="false" onAction="#calculate" prefHeight="55.0" prefWidth="55.0" style="-fx-background-radius: 30; -fx-background-color: #FA9712;" text="=" textFill="WHITE" GridPane.columnIndex="3" GridPane.rowIndex="4">
                      <font>
                         <Font name="Arial" size="19.0" />
                      </font>
