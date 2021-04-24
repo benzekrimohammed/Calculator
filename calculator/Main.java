@@ -10,10 +10,16 @@ public class Main extends Application {
     }
     @Override
     public void start(Stage stage)  throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("calculator.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("calculator.fxml"));
+        Parent root = loader.load();
+        Controller controller = loader.getController();
+
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.setTitle("Calculator :)");
+        scene.setOnKeyPressed(e -> {
+            controller.keypressed(e);
+        });
         stage.show();
     }
 }
