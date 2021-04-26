@@ -2,16 +2,12 @@ package calculator;
 import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.input.KeyCode;
-import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import java.util.regex.Pattern;
 import java.util.regex.Matcher;
 
 public class Controller {
-
    @FXML
    private Label panel;
    @FXML
@@ -54,10 +50,5 @@ public class Controller {
       double result = Evaluation.evaluate(this.getexpression().getText());
          setresult(String.valueOf(result));
    }  
-   public void keypressed (KeyEvent e){
-   if(e.getCode()==KeyCode.BACK_SPACE) delete();
-   else if(e.getCode()==KeyCode.ENTER) calculate();
-   else panel.setText(panel.getText()+e.getText());
-   }
+ 
 }
-
