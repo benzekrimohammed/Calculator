@@ -14,10 +14,7 @@ public class Main extends Application {
     }
     @Override
     public void start(Stage stage)  throws Exception {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("calculator.fxml"));
-        Parent root = loader.load();
-        Controller controller = loader.getController();
-
+        Parent root = FXMLLoader.load(getClass().getResource("calculator.fxml"));
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.setTitle("Calculator :)");

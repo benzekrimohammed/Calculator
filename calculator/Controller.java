@@ -2,10 +2,7 @@ package calculator;
 import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.input.KeyCode;
-import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import java.util.regex.Pattern;
 import java.util.regex.Matcher;
@@ -63,4 +60,3 @@ public class Controller {
    if(oprators.matcher(e.getText()).find()) insertop(e.getText());
    }
 }
-
