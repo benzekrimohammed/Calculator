@@ -2,8 +2,11 @@ package calculator;
 import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.input.*;
+import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 import java.util.regex.Pattern;
 import java.util.regex.Matcher;
 
@@ -14,6 +17,28 @@ public class Controller {
    private Label panel;
    @FXML
    private Label result;
+   @FXML
+   private AnchorPane parent;
+   private double x=0,y=0;
+   private Stage stage;
+   @FXML
+   public void initialize() {
+       dragger();
+   }
+
+
+   public void dragger(){
+      parent.setOnMousePressed(event ->{
+        x= event.getSceneX();
+        y= event.getSceneY();
+      });
+      parent.setOnMouseDragged(event->{
+         stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+         stage.setX(event.getScreenX()  -x);
+         stage.setY(event.getScreenY()-y);
+
+      });
+   }
 
    public void clearText(){
       panel.setText("");

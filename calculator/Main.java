@@ -21,8 +21,8 @@ public class Main extends Application {
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.setTitle("Calculator :)");
-        // stage.initStyle(StageStyle.TRANSPARENT);
-        // scene.setFill(Color.TRANSPARENT);
+        stage.initStyle(StageStyle.TRANSPARENT);
+        scene.setFill(Color.TRANSPARENT);
         scene.addEventFilter(KeyEvent.KEY_PRESSED,e -> {
             controller.keypressed(e);
         });
