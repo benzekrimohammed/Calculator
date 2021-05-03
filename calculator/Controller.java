@@ -19,13 +19,23 @@ public class Controller {
    private Label result;
    @FXML
    private AnchorPane parent;
+   @FXML
+   private Button min,max,close;
    private double x=0,y=0;
    private Stage stage;
    @FXML
    public void initialize() {
        dragger();
    }
-
+   public void topbar(Event event){
+    Button button =  (Button)event.getSource();
+    stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+    if(button.getId().equals("close")) stage.close();
+    if(button.getId().equals("min")) stage.setIconified(true);
+    else {stage.setFullScreenExitHint(" ");
+    stage.setFullScreen(true);
+   }
+   }
 
    public void dragger(){
       parent.setOnMousePressed(event ->{

@@ -18,9 +18,9 @@
          <children>
             <Pane prefHeight="45.0" prefWidth="298.0" style="-fx-background-color: #ffff; -fx-background-radius: 30;">
                <children>
-                  <Button focusTraversable="false" layoutX="260.0" layoutY="7.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="24.0" style="-fx-background-radius: 30; -fx-background-color: #FE5D55;" />
-                  <Button focusTraversable="false" layoutX="199.0" layoutY="7.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="24.0" style="-fx-background-radius: 30; -fx-background-color: #28C83E;" />
-                  <Button focusTraversable="false" layoutX="230.0" layoutY="7.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="24.0" style="-fx-background-radius: 30; -fx-background-color: #FFBB2C;" />
+                  <Button fx:id="close" focusTraversable="false" layoutX="260.0" layoutY="7.0" mnemonicParsing="false" onAction="#topbar" prefHeight="24.0" prefWidth="24.0" style="-fx-background-radius: 30; -fx-background-color: #FE5D55;" />
+                  <Button fx:id="max" focusTraversable="false" layoutX="199.0" layoutY="7.0" mnemonicParsing="false" onAction="#topbar" prefHeight="24.0" prefWidth="24.0" style="-fx-background-radius: 30; -fx-background-color: #28C83E;" />
+                  <Button fx:id="min" focusTraversable="false" layoutX="230.0" layoutY="7.0" mnemonicParsing="false" onAction="#topbar" prefHeight="24.0" prefWidth="24.0" style="-fx-background-radius: 30; -fx-background-color: #FFBB2C;" />
                </children>
             </Pane>
             <Label id="screen" fx:id="panel" alignment="CENTER_RIGHT" prefHeight="143.0" prefWidth="278.0" textFill="#fffefe">
