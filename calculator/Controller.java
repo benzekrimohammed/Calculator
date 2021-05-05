@@ -1,6 +1,5 @@
 package calculator;
 import javafx.event.Event;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.control.*;
@@ -12,6 +11,7 @@ import java.util.regex.Matcher;
 
 public class Controller {
    Pattern oprators = Pattern.compile("[*X%\\+/-]");
+   Pattern comma = Pattern.compile("[,]");
    Matcher matcher;
    @FXML
    private Label panel;
@@ -36,6 +36,9 @@ public class Controller {
     stage.setFullScreen(true);
    }
    }
+   public  void error(){
+      result.setText("ERROR");
+   }
 
    public void dragger(){
       parent.setOnMousePressed(event ->{
@@ -58,6 +61,7 @@ public class Controller {
    public void insertop(String operator){
       
       if(operator.equals("*")) operator="X";
+      if(operator.equals("/")) operator="÷";
       panel.setText(panel.getText() + " " + operator + " ");
    }
    public Label getexpression(){
@@ -89,9 +93,12 @@ public class Controller {
          setresult(String.valueOf(result));
    }  
    public void keypressed (KeyEvent e){
+   boolean StringNoComma=!(comma.matcher(panel.getText()).find());
    if(e.getCode()==KeyCode.BACK_SPACE) delete();
    if(e.getCode()==KeyCode.ENTER) { calculate();e.consume(); }
    if(e.getCode().isDigitKey()) panel.setText(panel.getText()+e.getText());
+   if(e.getCode()==KeyCode.DECIMAL && StringNoComma ) 
+   panel.setText(panel.getText()+",");
    if(oprators.matcher(e.getText()).find()) insertop(e.getText());
    }
 }

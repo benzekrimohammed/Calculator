@@ -1,9 +1,7 @@
 package calculator;
-
 import java.util.Stack;
-
 public class Evaluation
-{
+{   
 	public static double evaluate(String expression)
 	{
 		char[] tokens = expression.toCharArray();
@@ -99,16 +97,8 @@ public class Evaluation
 		case 'X':
 			return a * b;
 		case '÷':
-			if (b == 0)
-				throw new
-				UnsupportedOperationException(
-					"Cannot divide by zero");
 			return a / b;
 		case '%':
-		if (b == 0)
-				throw new
-				UnsupportedOperationException(
-					"Cannot divide by zero");
 			return a % b;
 		}
 		return 0;
