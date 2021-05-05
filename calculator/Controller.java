@@ -77,6 +77,7 @@ public class Controller {
    
    public void setresult(String newresult){
       this.result.setText("= " + newresult);
+      if(newresult.equals("Infinity")||newresult.equals("NaN")) error();
    }
    public void insert(Event e){
       Button button =  (Button)e.getSource();
