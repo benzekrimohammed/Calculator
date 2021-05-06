@@ -72,6 +72,8 @@ public class Controller {
    public void delete(){
       if(!getexpression().getText().isEmpty()){
          StringBuilder text = new StringBuilder(getexpression().getText());
+          if(panel.getText().endsWith(" ")) text.delete(text.length()-3, text.length());
+          else 
          text.deleteCharAt(text.length()-1);
          getexpression().setText(text.toString());
       }
