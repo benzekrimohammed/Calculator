@@ -11,6 +11,7 @@ import java.util.regex.Matcher;
 
 public class Controller {
    Pattern oprators = Pattern.compile("[*X%\\+/-]");
+   Pattern OpratorAtEnd = Pattern.compile("[*X%\\+/-].$");
    Pattern comma = Pattern.compile("[,]");
    Matcher matcher;
    @FXML
@@ -59,9 +60,10 @@ public class Controller {
    }
    
    public void insertop(String operator){
-      
+     Matcher AnyMalFormat = OpratorAtEnd.matcher(panel.getText());
       if(operator.equals("*")) operator="X";
       if(operator.equals("/")) operator="÷";
+      if(AnyMalFormat.find()) return;
       panel.setText(panel.getText() + " " + operator + " ");
    }
    public Label getexpression(){
@@ -98,6 +100,7 @@ public class Controller {
    if(e.getCode()==KeyCode.BACK_SPACE) delete();
    if(e.getCode()==KeyCode.ENTER) { calculate();e.consume(); }
    if(e.getCode().isDigitKey()) panel.setText(panel.getText()+e.getText());
+   if(e.getCode()==KeyCode.ESCAPE) clearText();
    if(e.getCode()==KeyCode.DECIMAL && StringNoComma ) 
    panel.setText(panel.getText()+",");
    if(oprators.matcher(e.getText()).find()) insertop(e.getText());
