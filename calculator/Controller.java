@@ -83,15 +83,20 @@ public class Controller {
    }
    public void insert(Event e){
       Button button =  (Button)e.getSource();
-      String btext = button.getText();
+      String btext = button.getText();      
       matcher = oprators.matcher(btext);
       if(matcher.find()){ insertop(btext);return;};
       if(btext=="AC") return;
-      panel.setText(panel.getText()+btext);     
-
+      panel.setText(panel.getText()+btext);
+      if(result.getText().equals("Malformed expression")) result.setText("");
+      }
+      public void insertk(KeyEvent e){
+         panel.setText(panel.getText()+e.getText());
+         if(result.getText().equals("Malformed expression")) result.setText("");
       }
 
    public void calculate(){
+      if(panel.getText().endsWith(" ")) {result.setText("Malformed expression");return;}
       double result = Evaluation.evaluate(this.getexpression().getText());
          setresult(String.valueOf(result));
    }  
@@ -99,7 +104,7 @@ public class Controller {
    boolean StringNoComma=!(comma.matcher(panel.getText()).find());
    if(e.getCode()==KeyCode.BACK_SPACE) delete();
    if(e.getCode()==KeyCode.ENTER) { calculate();e.consume(); }
-   if(e.getCode().isDigitKey()) panel.setText(panel.getText()+e.getText());
+   if(e.getCode().isDigitKey()) insertk(e);
    if(e.getCode()==KeyCode.ESCAPE) clearText();
    if(e.getCode()==KeyCode.DECIMAL && StringNoComma ) 
    panel.setText(panel.getText()+",");
